@@ -1,0 +1,26 @@
+{
+  "name": "wbroberts-quadtree",
+  "version": "1.0.6",
+  "description": "A Quadtree data structure written in Typescript.",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "rm -rf lib && tsc"
+  },
+  "keywords": [
+    "data-structure",
+    "typescript"
+  ],
+  "author": {
+    "name": "William Roberts",
+    "email": "willbarronroberts@gmail.com",
+    "url": "https://www.williambarronroberts.com"
+  },
+  "repository": {
+    "type": "git"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^3.5.3"
+  }
+}

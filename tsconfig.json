@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "allowJs": false,
+    "noImplicitAny": true,
+    "target": "es5",
+    "module": "commonjs",
+    "outDir": "./lib/",
+    "rootDir": "./src/",
+    "sourceMap": true,
+    "declaration": true,
+    "esModuleInterop": true
+  }
+}
