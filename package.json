@@ -1,8 +1,11 @@
 {
   "name": "wbroberts-quadtree",
-  "version": "1.0.7",
+  "version": "0.0.1",
   "description": "A Quadtree data structure written in Typescript.",
   "main": "lib/index.js",
+  "files": [
+    "lib/"
+  ],
   "types": "lib/index.d.ts",
   "scripts": {
     "build": "rm -rf lib && tsc"
@@ -21,7 +24,9 @@
     "url": "https://github.com/wbroberts/quadtree"
   },
   "license": "MIT",
-  "devDependencies": {
+  "devDependencies": {},
+  "dependencies": {
+    "@types/node": "^12.7.2",
     "typescript": "^3.5.3"
   }
 }

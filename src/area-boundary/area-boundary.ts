@@ -1,6 +1,16 @@
-import { Vector, Boundary } from './interfaces';
+import { Vector, Boundary } from '../interfaces/interfaces';
 
-export class AreaBoundary {
+export interface AreaBoundary {
+  center: Vector;
+  width: number;
+  height: number;
+  x: number;
+  y: number;
+  (contains: any): boolean;
+  (intersects: AreaBoundary): boolean;
+}
+
+export class AreaBoundary implements AreaBoundary {
   center: Vector;
   width: number;
   height: number;
@@ -28,7 +38,7 @@ export class AreaBoundary {
     return point.x >= left && point.x <= right && point.y >= top && point.y <= bottom;
   }
 
-  intersects(range: AreaBoundary) {
+  intersects(range: AreaBoundary): boolean {
     return !(
       range.x > this.x + this.width ||
       range.y > this.y + this.height ||

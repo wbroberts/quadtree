@@ -1,11 +1,16 @@
-export interface Vector {
+interface Vector {
   x: number;
   y: number;
 }
 
-export interface Boundary {
+interface Boundary {
   x: number;
   y: number;
   width: number;
   height: number;
+}
+
+export {
+  Vector,
+  Boundary
 }

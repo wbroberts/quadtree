@@ -1,62 +1,54 @@
-import { AreaBoundary } from './area-boundary';
-import { Boundary } from './interfaces';
+import { AreaBoundary } from '../area-boundary/area-boundary';
 
 export class QuadTree {
   protected items: any[] = [];
-  protected boundary: AreaBoundary;
   protected isDivided: boolean = false;
 
-  topLeft?: QuadTree;
-  topRight?: QuadTree;
-  bottomLeft?: QuadTree;
-  bottomRight?: QuadTree;
+  topLeft: QuadTree = null;
+  topRight: QuadTree = null;
+  bottomLeft: QuadTree = null;
+  bottomRight: QuadTree = null;
 
-  constructor (area: Boundary, public ctx: CanvasRenderingContext2D, protected capacity = 3) {
-    this.boundary = new AreaBoundary(area);
-  }
+  constructor (public boundary: AreaBoundary, protected capacity = 3) { }
 
   divide(): void {
     const halfWidth = this.boundary.width / 2;
     const halfHeight = this.boundary.height / 2;
 
     this.topLeft = new QuadTree(
-      {
+      new AreaBoundary({
         x: this.boundary.x,
         y: this.boundary.y,
         width: halfWidth,
         height: halfHeight
-      },
-      this.ctx
+      })
     );
 
     this.topRight = new QuadTree(
-      {
+      new AreaBoundary({
         x: this.boundary.x + halfWidth,
         y: this.boundary.y,
         width: halfWidth,
         height: halfHeight
-      },
-      this.ctx
+      })
     );
 
     this.bottomLeft = new QuadTree(
-      {
+      new AreaBoundary({
         x: this.boundary.x,
         y: this.boundary.y + halfHeight,
         width: halfWidth,
         height: halfHeight
-      },
-      this.ctx
+      })
     );
 
     this.bottomRight = new QuadTree(
-      {
+      new AreaBoundary({
         x: this.boundary.x + halfWidth,
         y: this.boundary.y + halfHeight,
         width: halfWidth,
         height: halfHeight
-      },
-      this.ctx
+      })
     );
 
     this.isDivided = true;
