@@ -1,4 +1,4 @@
-import { Boundary } from '../area-boundary/area-boundary';
+import { Boundary } from '../boundary/boundary';
 
 export class Quadtree {
   protected items: any[] = [];

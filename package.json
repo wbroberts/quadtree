@@ -1,6 +1,6 @@
 {
   "name": "wbroberts-quadtree",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A Quadtree data structure written in Typescript.",
   "main": "lib/index.js",
   "files": [
@@ -8,7 +8,8 @@
   ],
   "types": "lib/index.d.ts",
   "scripts": {
-    "build": "rm -rf lib && tsc"
+    "build": "rm -rf lib && tsc",
+    "prepublish": "npm run build"
   },
   "keywords": [
     "data-structure",
