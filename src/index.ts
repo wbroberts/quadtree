@@ -1,2 +1,2 @@
 export * from './quadtree/quadtree';
-export * from './area-boundary/area-boundary';
+export * from './boundary/boundary';
