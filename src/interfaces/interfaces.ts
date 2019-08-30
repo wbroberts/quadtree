@@ -3,7 +3,7 @@ interface Vector {
   y: number;
 }
 
-interface Boundary {
+interface Area {
   x: number;
   y: number;
   width: number;
@@ -12,5 +12,5 @@ interface Boundary {
 
 export {
   Vector,
-  Boundary
+  Area
 }

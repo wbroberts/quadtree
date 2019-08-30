@@ -1,23 +1,23 @@
-import { Vector, Boundary } from '../interfaces/interfaces';
+import { Vector, Area } from '../interfaces/interfaces';
 
-export interface AreaBoundary {
+export interface Boundary {
   center: Vector;
   width: number;
   height: number;
   x: number;
   y: number;
   (contains: any): boolean;
-  (intersects: AreaBoundary): boolean;
+  (intersects: Area): boolean;
 }
 
-export class AreaBoundary implements AreaBoundary {
+export class Boundary implements Boundary {
   center: Vector;
   width: number;
   height: number;
   x: number;
   y: number;
 
-  constructor (area: Boundary) {
+  constructor (area: Area) {
     this.width = area.width;
     this.height = area.height;
     this.x = area.x;
@@ -38,7 +38,7 @@ export class AreaBoundary implements AreaBoundary {
     return point.x >= left && point.x <= right && point.y >= top && point.y <= bottom;
   }
 
-  intersects(range: AreaBoundary): boolean {
+  intersects(range: Boundary): boolean {
     return !(
       range.x > this.x + this.width ||
       range.y > this.y + this.height ||

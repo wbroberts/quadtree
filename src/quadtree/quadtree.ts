@@ -1,22 +1,22 @@
-import { AreaBoundary } from '../area-boundary/area-boundary';
+import { Boundary } from '../area-boundary/area-boundary';
 
-export class QuadTree {
+export class Quadtree {
   protected items: any[] = [];
   protected isDivided: boolean = false;
 
-  topLeft: QuadTree = null;
-  topRight: QuadTree = null;
-  bottomLeft: QuadTree = null;
-  bottomRight: QuadTree = null;
+  topLeft: Quadtree = null;
+  topRight: Quadtree = null;
+  bottomLeft: Quadtree = null;
+  bottomRight: Quadtree = null;
 
-  constructor (public boundary: AreaBoundary, protected capacity = 3) { }
+  constructor (public boundary: Boundary, protected capacity = 3) { }
 
   divide(): void {
     const halfWidth = this.boundary.width / 2;
     const halfHeight = this.boundary.height / 2;
 
-    this.topLeft = new QuadTree(
-      new AreaBoundary({
+    this.topLeft = new Quadtree(
+      new Boundary({
         x: this.boundary.x,
         y: this.boundary.y,
         width: halfWidth,
@@ -24,8 +24,8 @@ export class QuadTree {
       })
     );
 
-    this.topRight = new QuadTree(
-      new AreaBoundary({
+    this.topRight = new Quadtree(
+      new Boundary({
         x: this.boundary.x + halfWidth,
         y: this.boundary.y,
         width: halfWidth,
@@ -33,8 +33,8 @@ export class QuadTree {
       })
     );
 
-    this.bottomLeft = new QuadTree(
-      new AreaBoundary({
+    this.bottomLeft = new Quadtree(
+      new Boundary({
         x: this.boundary.x,
         y: this.boundary.y + halfHeight,
         width: halfWidth,
@@ -42,8 +42,8 @@ export class QuadTree {
       })
     );
 
-    this.bottomRight = new QuadTree(
-      new AreaBoundary({
+    this.bottomRight = new Quadtree(
+      new Boundary({
         x: this.boundary.x + halfWidth,
         y: this.boundary.y + halfHeight,
         width: halfWidth,
@@ -80,7 +80,7 @@ export class QuadTree {
     return this.items.length === this.capacity;
   }
 
-  query(range: AreaBoundary, array: any[] = []): any[] {
+  query(range: Boundary, array: any[] = []): any[] {
     if (!this.boundary.intersects(range)) {
       return array;
     }
